@@ -10,7 +10,55 @@
 </head>
 
 <body>
-  <h1>Alphabet Battle</h1>
+  <div id="wrapper" class="wrapper in-result in-greeting">
+    <div class="divider"></div>
+    <div class="content">
+      <h1 class="game-title">Alphabet Battle</h1>
+      <div class="game-content">
+        <div class="game-content__score">
+          ВАШІ БАЛИ: <span id="game-score">0</span>
+        </div>
+        <div class="game-content__task">
+          <span class="letter">A</span>
+          <span class="letter">_</span>
+          <span class="letter">A</span>
+        </div>
+        <div class="game-content__progress-bar">
+          <div id="progress" class="game-content__progress-value" style="width: 70%"></div>
+        </div>
+      </div>
+      <div class="result-content">
+        <div class="result-content__score">
+          ВАШІ БАЛИ:<br/><span id="result-score">0</span>
+        </div>
+        <div class="result-content__share">
+          ПОДІЛИТИСЬ
+        </div>
+        <ul id="table" class="result-content__table">
+          <li class="row you"><span class="position">1.</span><span class="score">12</span><div class="name">D</div></li>
+          <li class="row"><span class="position">2.</span><span class="score">121</span><div class="name">Ukjfka fka jdkadj kj akACF</div></li>
+        </ul>
+      </div>
+    </div>
+    <div class="divider"></div>
+    <div class="buttons">
+      <div id="button1" class="button button-control">
+        <div class="icon-letter">A</div>
+        <div class="icon-start"></div>
+        <div class="icon-retry"></div>
+      </div><!--
+   --><div id="button2" class="button button-answer">
+        <div class="icon-letter">B</div>
+      </div><!--
+   --><div id="button3" class="button button-answer">
+        <div class="icon-letter">C</div>
+      </div><!--
+   --><div id="button4" class="button button-answer">
+        <div class="icon-letter">D</div>
+      </div>
+    </div>
+  </div>
+  <script src="https://telegram.org/js/games.js"></script>
   <script src="index.js"></script>
 </body>
 

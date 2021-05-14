@@ -1,6 +1,284 @@
+:root {
+  --red: #e08989;
+  --red-darker: #dd7e7e;
+  --green: #3C907C;
+  --green-darker: #398875;
+  --blue: #31A9B8;
+  --blue-darker: #2ea0ae;
+  --yellow: #dbb682;
+  --yellow-darker: #dab37c;
+  --white-alpha: rgba(255, 255, 255, .4);
+}
+
+@font-face {
+  font-family: 'Chalk';
+  src: url(../fonts/Chalk.ttf);
+}
+
 body,
 html {
   margin: 0;
   padding: 0;
   height: 100%;
+}
+
+body {
+  font-family: 'Chalk', sans-serif;
+  color: #FFF;
+  background-color: #FFF;
+}
+
+.wrapper {
+  height: 100%;
+  user-select: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.divider {
+  border-top: 13px solid var(--yellow-darker);
+}
+
+.buttons {
+  background: #FFF;
+  padding: 54px 0;
+  display: flex;
+  justify-content: center;
+  transition: padding .2s ease-in;
+}
+
+.in-result .buttons {
+  padding-left: 492px;
+}
+
+.button-control .icon-start,
+.button-control .icon-retry,
+.in-result .button-answer,
+.in-result.in-greeting .button-control .icon-retry,
+.icon-letter {
+  visibility: hidden;
+  opacity: 0
+}
+
+.in-greeting .button-control .icon-start,
+.in-result .button-control .icon-retry,
+.in-game .icon-letter {
+  visibility: visible;
+  opacity: 1
+}
+
+.button+.button {
+  margin-left: 44px
+}
+
+.button {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all .15s ease-in;
+}
+
+.button:hover {
+  transform: scale3d(.95, .95, 1)
+}
+
+#button1 {
+  background: var(--green);
+}
+
+#button1:hover {
+  background: var(--green-darker);
+}
+
+#button2 {
+  background: var(--yellow);
+}
+
+#button2:hover {
+  background: var(--yellow-darker);
+}
+
+#button3 {
+  background: var(--blue);
+}
+
+#button3:hover {
+  background: var(--blue-darker);
+}
+
+#button4 {
+  background: var(--red);
+}
+
+#button4:hover {
+  background: var(--red-darker);
+}
+
+.icon-start,
+.icon-retry {
+  width: 48px;
+  height: 48px;
+  background-size: 48px 48px;
+  position: absolute;
+  transition: opacity .2s ease-in;
+}
+
+.icon-letter {
+  font-size: 48px;
+  margin-top: 16px;
+}
+
+.icon-start {
+  background-image: url(../images/start.png);
+}
+
+.icon-retry {
+  background-image: url(../images/retry.png);
+}
+
+.content {
+  flex-grow: 1;
+  text-align: center;
+  font-weight: 700;
+  background-color: var(--green);
+}
+
+.game-title {
+  text-transform: uppercase;
+  font-size: 48px;
+  padding: 50px 20px;
+  display: none;
+}
+
+.game-content {
+  height: 100%;
+  display: none;
+  flex-direction: column;
+}
+
+.game-content__task {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.game-content__task .letter {
+  font-size: 96px;
+  margin: 12px;
+}
+
+.in-greeting .game-title {
+  display: block
+}
+
+.in-game .game-content {
+  display: flex
+}
+
+.game-content__progress-bar {
+  background-color: rgba(255, 255, 255, 0.4);
+  border-radius: 13px;
+  height: 13px;
+  margin: 13px;
+}
+
+.game-content__progress-value {
+  background-color: #FFF;
+  transition: 0.3s width linear;
+  border-radius: 13px;
+  height: 13px;
+}
+
+.game-content__score {
+  padding: 10px;
+  font-size: 14px;
+}
+
+
+.result-content {
+  display: none;
+}
+
+.in-result .result-content {
+  display: block;
+}
+
+.in-greeting .result-content__score {
+  display: none;
+}
+
+.result-content__score {
+  padding: 40px 20px 0px;
+  font-size: 20px;
+}
+
+.result-content__score #result-score {
+  font-size: 48px;
+  line-height: 96px;
+}
+
+.result-content__share {
+  font-size: 14px;
+  border-radius: 20px;
+  border: 3px solid #fff;
+  padding: 8px 12px 4px 12px;
+  display: none;
+}
+
+.result-content__share.show {
+  display: inline-block;
+}
+
+.result-content__share:hover {
+  transform: scale3d(.95, .95, 1)
+}
+
+.result-content__table {
+  display: none;
+  text-align: left;
+  list-style: none;
+  padding: 0 25px 30px;
+  max-height: 204px;
+  overflow-y: auto;
+}
+
+.result-content__table .row {
+  padding: 6px 15px 4px;
+  margin: 0 15px;
+  font-size: 16px;
+}
+
+.result-content__table .row.you {
+  background: var(--white-alpha);
+  border-radius: 6px;
+}
+
+.result-content__table .position {
+  float: left;
+  min-width: 20px;
+  padding-right: 8px;
+  padding-top: 4px;
+}
+
+.result-content__table .name {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  padding-top: 4px;
+}
+
+.result-content__table .score {
+  float: right;
+  text-align: right;
+  min-width: 50px;
+  padding-left: 7px;
+  padding-top: 4px;
+}
+
+.result-content__table.show {
+  display: block;
 }
