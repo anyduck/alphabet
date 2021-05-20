@@ -1,3 +1,21 @@
 start: Привіт!
+back: « Назад
 
-help: 😥
+start_game: Потренуватись
+start_quiz: Пройти тест
+class_menu: Робота з класами
+
+create_class: Створити клас
+list_classes: Мої класи
+
+create_class_enter_name: Введіть назву класу
+class_info: >
+ Клас {name}: <a href="https://t.me/learn_alphabet_bot?start={teacher_id}-{class_id}">посилання для учнів</a>
+student_info: <a href="tg://user?id={id}">{name}</a> - max {result}% - {n} спроб
+
+
+quiz_result: Ви набрали {result}%
+
+
+correct: ✅
+wrong: ❌ 
