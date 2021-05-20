@@ -1,6 +1,7 @@
 from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup, KeyboardButton, ReplyKeyboardMarkup
 from app.config.bot import MESSAGES
 from app.quiz.base import Question
+from app.database.models import Class
 
 
 class TestKeyboard(InlineKeyboardMarkup):
@@ -20,6 +21,7 @@ class MenuKeyboard(ReplyKeyboardMarkup):
         ]
         super().__init__(row_width=len(keyboard), keyboard=keyboard)
 
+
 class QuizKeyboard(ReplyKeyboardMarkup):
     def __init__(self, question: Question):
         half = len(question._answers) // 2
@@ -28,3 +30,22 @@ class QuizKeyboard(ReplyKeyboardMarkup):
             [KeyboardButton(answer) for answer in question._answers[:half]],
         ]
         super().__init__(row_width=len(keyboard), keyboard=keyboard)
+
+
+class ClassesMenuKeyboard(InlineKeyboardMarkup):
+    def __init__(self, classes: list[Class]):
+        keyboard = [
+            [InlineKeyboardButton(class_.name, callback_data=f'list_class:{class_.id}')]
+            for class_ in classes
+        ] + [
+            [InlineKeyboardButton(MESSAGES['create_class'], callback_data='create_class')]
+        ]
+        super().__init__(row_width=len(keyboard), inline_keyboard=keyboard)
+
+
+class ClassMenuKeyboard(InlineKeyboardMarkup):
+    def __init__(self):
+        keyboard = [
+            [InlineKeyboardButton(MESSAGES['back'], callback_data='back')]
+        ]
+        super().__init__(row_width=len(keyboard), inline_keyboard=keyboard)
